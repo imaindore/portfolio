@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { Trophy, Star, Calendar, GraduationCap, Rocket, TrendingUp } from 'lucide-react';
-import backdropImg from '../../image/old ima.png';
-import secondImg from '../../image/backdrop.jpg';
 
 const journeyPoints = [
   {
@@ -120,7 +118,7 @@ export const Timeline = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
-                  src={backdropImg}
+                  src="../src/image/oldima.png"
                   alt="IMA Journey 1963 to 2026"
                   className="w-full h-full object-cover"
                 />
@@ -132,7 +130,7 @@ export const Timeline = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
-                  src={secondImg}
+                  src="../src/image/backdrop.jpg"
                   alt="IMA Leadership and Growth"
                   className="w-full h-full object-cover object-center"
                 />

@@ -2,17 +2,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Calendar, X } from 'lucide-react';
 
-import img1 from '../../image/aman.jpg';
-import img2 from '../../image/amitabh.jpeg';
-import img3 from '../../image/niranjan2.jpg';
-import img4 from '../../image/suhani4.jpg';
-import img5 from '../../image/suhani.jpg';
-import img6 from '../../image/suhani1.jpg';
-import img7 from '../../image/manish.jpg';
-import img8 from '../../image/robot.jpg';
-import img9 from '../../image/amitabh1.jpeg';
-import img10 from '../../image/niranjan1.jpg';
-
 interface Event {
   id: string;
   title: string;
@@ -24,61 +13,61 @@ const staticEvents: Event[] = [
   {
     id: 'event-1',
     title: 'Aman Gupta',
-    image_url: img1,
+    image_url: '../src/image/aman.jpg',
     date: '2026-02-27',
   },
   {
     id: 'event-2',
     title: 'Amitabh Bachchan',
-    image_url: img2,
+    image_url: '../src/image/amitabh.jpeg',
     date: '2014-01-26',
   },
   {
     id: 'event-3',
     title: 'Dr. Niranjan Hiranandani',
-    image_url: img3,
+    image_url: '../src/image/niranjan2.jpg',
     date: '2026-02-26',
   },
   {
     id: 'event-4',
     title: 'Suhani Shah',
-    image_url: img4,
+    image_url: '../src/image/suhani4.jpg',
     date: '2026-02-27',
   },
   {
     id: 'event-5',
     title: 'Suhani Shah',
-    image_url: img5,
+    image_url: '../src/image/suhani.jpg',
     date: '2026-02-27',
   },
   {
     id: 'event-6',
     title: 'Suhani Shah',
-    image_url: img6,
+    image_url: '../src/image/suhani1.jpg',
     date: '2026-02-27',
   },
   {
     id: 'event-7',
     title: 'Acharya Manish Ji',
-    image_url: img7,
+    image_url: '../src/image/manish.jpg',
     date: '2026-02-27',
   },
   {
     id: 'event-8',
     title: 'AI Robotics integrates',
-    image_url: img8,
+    image_url: '../src/image/robot.jpg',
     date: '2026-02-26',
   },
   {
     id: 'event-9',
     title: 'Amitabh Bachchan',
-    image_url: img9,
+    image_url: '../src/image/amitabh1.jpeg',
     date: '2014-01-26',
   },
   {
     id: 'event-10',
     title: 'Dr. Niranjan Hiranandani',
-    image_url: img10,
+    image_url: '../src/image/niranjan1.jpg',
     date: '2026-02-26',
   }
 ];

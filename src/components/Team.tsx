@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-// Import your local images here, e.g.:
-// import img1 from '../../image/team-member1.jpg';
-
 interface TeamMember {
   id: string;
   name: string;
@@ -17,35 +14,35 @@ const staticMembers: TeamMember[] = [
     id: 'member-1',
     name: 'Mr. Navin Khandelwal',
     position: 'President',
-    image_url: '../../image/navin sir.jpeg', // Replace with img1 if imported
+    image_url: '../src/image/navinsir.jpeg',
     order_index: 1,
   },
   {
     id: 'member-2',
     name: 'Mr. Ashwin Palshikar',
     position: 'Vice President',
-    image_url: '../../image/ashwin sir.png',
+    image_url: '../src/image/ashwinsir.png',
     order_index: 2,
   },
   {
-    id: 'member-2',
+    id: 'member-3',
     name: 'Mr. Sapan Shah',
     position: 'Vice President',
-    image_url: '../../image/sapan sir.jpeg',
+    image_url: '../src/image/sapansir.jpeg',
     order_index: 3,
   },
   {
-    id: 'member-3',
+    id: 'member-4',
     name: 'Ms. Chani Trivedi',
     position: 'Secretary',
-    image_url: '../../image/chani maam.JPG',
+    image_url: '../src/image/chanimaam.jpg',
     order_index: 4,
   },
   {
-    id: 'member-4',
+    id: 'member-5',
     name: 'Mr. G.S. Juneja',
     position: 'Treasurer',
-    image_url: '../../image/Juneja sir.png',
+    image_url: '../src/image/junejasir.png',
     order_index: 5,
   }
 ];

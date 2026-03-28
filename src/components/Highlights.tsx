@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import backdropImg from '../../image/backdrop.jpg';
 
 interface Highlight {
   id: string;
