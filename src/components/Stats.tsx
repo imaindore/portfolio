@@ -48,17 +48,19 @@ const CountUp = ({ end, duration = 2 }: { end: number; duration?: number }) => {
 
 export const Stats = () => {
   return (
-    <section className="py-24 px-4 bg-gradient-to-br from-[#FAFAFA] to-[#FFF9F0] relative overflow-hidden flex justify-center items-center">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-br from-[#FAFAFA] to-[#FFF9F0] relative overflow-hidden flex justify-center items-center">
       {/* Unique Theme: Floating Dots and Soft Gradients */}
       <motion.div
         className="absolute -top-10 -left-10 w-40 h-40 bg-[#D4AF37]/20 rounded-full blur-2xl"
         animate={{ y: [0, 50, 0], x: [0, 30, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div
         className="absolute -bottom-10 -right-10 w-60 h-60 bg-[#E6C97A]/20 rounded-full blur-3xl"
         animate={{ y: [0, -50, 0], x: [0, -30, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        style={{ willChange: 'transform' }}
       />
       
       {/* Animated geometric background lines */}
@@ -73,7 +75,8 @@ export const Stats = () => {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 md:mb-16 text-[#111111]"
         >
           Our <span className="text-[#D4AF37]">Impact</span>

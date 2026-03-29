@@ -36,7 +36,7 @@ const journeyPoints = [
 
 export const Timeline = () => {
   return (
-    <section className="py-24 px-4 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-white relative overflow-hidden">
       {/* Unique Theme: Animated Diagonal Stripes & Soft Blobs */}
       <motion.div 
         className="absolute inset-0 pointer-events-none opacity-[0.02]" 
@@ -49,18 +49,21 @@ export const Timeline = () => {
         className="absolute top-1/4 -left-20 w-[30rem] h-[30rem] bg-gradient-to-r from-[#D4AF37]/10 to-[#E6C97A]/5 rounded-full blur-[100px]"
         animate={{ scale: [1, 1.1, 1], rotate: [0, 90, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div
         className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-gradient-to-l from-[#D4AF37]/10 to-[#E6C97A]/5 rounded-full blur-[100px]"
         animate={{ scale: [1, 1.2, 1], rotate: [0, -90, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+        style={{ willChange: 'transform' }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-sm mb-2 block">Our Legacy</span>
@@ -78,7 +81,7 @@ export const Timeline = () => {
             }}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             className="w-full lg:w-1/2 space-y-6"
           >
             {journeyPoints.map((point, index) => (
@@ -106,7 +109,8 @@ export const Timeline = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             className="w-full lg:w-1/2 relative"
           >
             <div className="relative group h-[350px] sm:h-[450px] lg:h-[600px] w-full mt-8 lg:mt-0">
@@ -118,7 +122,7 @@ export const Timeline = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
-                  src="/image/oldima.png"
+                  src="/image/oldima.PNG"
                   alt="IMA Journey 1963 to 2026"
                   className="w-full h-full object-cover"
                 />
@@ -130,7 +134,7 @@ export const Timeline = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
-                  src="/image/backdrop.jpg"
+                  src="/image/backdrop.JPG"
                   alt="IMA Leadership and Growth"
                   className="w-full h-full object-cover object-center"
                 />
@@ -141,9 +145,9 @@ export const Timeline = () => {
               <motion.div 
                 initial={{ opacity: 0, y: 50, rotate: -10 }}
                 whileInView={{ opacity: 1, y: 0, rotate: -5 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: 0.6, type: "spring", bounce: 0.5 }}
-                className="absolute bottom-4 right-0 sm:bottom-1/4 sm:-right-4 md:-right-8 z-30"
+                className="absolute bottom-4 right-4 sm:bottom-1/4 sm:-right-4 md:-right-8 z-30"
               >
                 <motion.div 
                   animate={{ y: [-5, 5, -5] }}
@@ -167,9 +171,9 @@ export const Timeline = () => {
               <motion.div 
                 initial={{ opacity: 0, y: -50, rotate: 10 }}
                 whileInView={{ opacity: 1, y: 0, rotate: 5 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: 0.8, type: "spring", bounce: 0.5 }}
-                className="absolute top-4 left-0 sm:top-1/4 sm:-left-4 md:-left-8 z-30"
+                className="absolute top-4 left-4 sm:top-1/4 sm:-left-4 md:-left-8 z-30"
               >
                 <motion.div
                   animate={{ y: [5, -5, 5] }}

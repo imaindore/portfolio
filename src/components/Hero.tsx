@@ -55,12 +55,12 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F8F8F8] via-white to-[#FFF9F0]">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F8F8F8] via-white to-[#FFF9F0]">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url(/image/backdrop.jpg)`,
+            backgroundImage: `url(/image/backdrop.JPG)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -81,11 +81,11 @@ export const Hero = () => {
         transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#D4AF37] rounded-full"
+            className="absolute w-1 h-1 bg-[#D4AF37] rounded-full pointer-events-none"
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
@@ -100,11 +100,12 @@ export const Hero = () => {
               repeat: Infinity,
               delay: Math.random() * 2,
             }}
+            style={{ willChange: 'transform, opacity' }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12 md:gap-16 lg:gap-24 pt-20 md:pt-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12 md:gap-16 lg:gap-24 pt-24 md:pt-0">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -136,7 +137,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-[#111111] mb-4 md:mb-6 tracking-tight leading-tight"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#111111] mb-4 md:mb-6 tracking-tight leading-tight"
           >
             INDORE MANAGEMENT
             <br />

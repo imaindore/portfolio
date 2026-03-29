@@ -31,27 +31,33 @@ const staticHighlights: Highlight[] = [
     id: 'yt-1',
     title: 'IMA International Management Conclave (Feb. 2026)',
     video_url: 'https://youtu.be/sDFDQynAqgc?si=BnQSySssVQdWnB0r',
-  },
-  {
-    id: 'yt-1',
-    title: 'IMA International Management Conclave (Jan. 2014) - Mr. Amitabh Bachchan',
-    video_url: 'https://youtu.be/hQ3F7ndetYY?si=8Mu4li-YCrwxnTwf',
-  },
+  },  
   {
     id: 'yt-2',
+    title: 'IMA International Management Conclave (Jan. 2014) - Mr. Amitabh Bachchan',
+    video_url: 'https://youtu.be/15avzbRqx9Q?si=_CRbijfbX9-09X4y',
+    thumbnail_url: '/image/amitabh1.jpeg',
+  },
+  {
+    id: 'yt-3',
     title: 'Theme Reveal of the 33rd IMA International Management Conclave 2026',
     video_url: 'https://youtu.be/6dTi5OnFquk?si=IUhrmf7CchA__3uO',
   },
   {
-    id: 'yt-3',
+    id: 'yt-4',
     title: 'IMA International Management Conclave (Feb. 2026)',
     video_url: 'https://youtu.be/aWzwwqJHT_U?si=rzj3XAX1VrYRMKkX',
   },
   {
-    id: 'yt-4',
+    id: 'yt-5',
     title: 'IMA International Management Conclave (Feb. 2026)',
     video_url: 'https://youtu.be/eSCfBGyT_Qg?si=0-chVGjTUcmGOm4e',
-  }
+  },
+  {
+    id: 'yt-6',
+    title: 'IMA International Management Conclave (Jan. 2014) - Mr. Amitabh Bachchan',
+    video_url: 'https://youtu.be/hQ3F7ndetYY?si=8Mu4li-YCrwxnTwf',
+  },
 ];
 
 const HighlightCard = ({
@@ -66,8 +72,8 @@ const HighlightCard = ({
   <motion.div
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: (index % 3) * 0.15 }}
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ duration: 0.6, delay: (index % 3) * 0.15, ease: 'easeOut' }}
     whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300, damping: 20 } }}
     className="group relative cursor-pointer"
   >
@@ -81,8 +87,10 @@ const HighlightCard = ({
 
     <div className="relative aspect-video overflow-hidden bg-black rounded-2xl border-2 border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-all duration-300 z-10 shadow-lg" onClick={() => setPlayingVideo(highlight)}>
           <motion.img
-            src={getYouTubeThumbnail(highlight.video_url) || highlight.thumbnail_url}
+            src={highlight.thumbnail_url || getYouTubeThumbnail(highlight.video_url)}
             alt={highlight.title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.4 }}
@@ -121,7 +129,7 @@ export const Highlights = () => {
   const displayedHighlights = highlights.slice(0, 3);
 
   return (
-    <section className="py-24 px-4 bg-[#FAFAFA] relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#FAFAFA] relative overflow-hidden">
       {/* Unique Theme: Elegant Light with Gold Glowing Particles */}
       <motion.div 
         className="absolute inset-0 pointer-events-none opacity-30" 
@@ -137,6 +145,7 @@ export const Highlights = () => {
           y: [0, 50, 0],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div
         className="absolute bottom-0 right-1/4 w-[40rem] h-[40rem] bg-[#E6C97A]/10 rounded-full blur-[120px]"
@@ -145,13 +154,15 @@ export const Highlights = () => {
           y: [0, -50, 0],
         }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ willChange: 'transform' }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-[#111111]"
         >
           <span className="text-[#D4AF37]">Highlights</span> & Achievements
@@ -159,7 +170,8 @@ export const Highlights = () => {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="text-center text-gray-600 mb-16 max-w-2xl mx-auto"
         >
           Experience the moments that define our excellence
@@ -180,7 +192,8 @@ export const Highlights = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="mt-16 flex justify-center"
           >
             <motion.button
@@ -197,11 +210,18 @@ export const Highlights = () => {
 
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{ willChange: 'transform, opacity' }}
               className="bg-white border border-gray-100 rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
             >
               <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
@@ -221,22 +241,29 @@ export const Highlights = () => {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {playingVideo && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-sm"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{ willChange: 'transform, opacity' }}
               className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
             >
               <button
                 onClick={() => setPlayingVideo(null)}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors"
+                className="fixed top-4 right-4 md:top-8 md:right-8 z-[70] p-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full backdrop-blur-md transition-all shadow-xl"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -258,7 +285,7 @@ export const Highlights = () => {
                 />
               )}
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>

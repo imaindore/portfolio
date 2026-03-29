@@ -39,17 +39,19 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-24 px-4 bg-[#FAFAFA] relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#FAFAFA] relative overflow-hidden">
       {/* Unique Theme: Immersive Mesh Gradient */}
       <motion.div
         className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-gradient-to-bl from-[#D4AF37]/10 via-[#E6C97A]/5 to-transparent rounded-full blur-[100px]"
         animate={{ scale: [1, 1.1, 1], rotate: [0, 45, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div
         className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-gradient-to-tr from-[#111111]/5 via-[#D4AF37]/5 to-transparent rounded-full blur-[80px]"
         animate={{ scale: [1, 1.2, 1], x: [0, 50, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div 
         className="absolute inset-0 z-0 pointer-events-none opacity-20" 
@@ -62,7 +64,8 @@ export const Contact = () => {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-[#111111]"
         >
           Get in <span className="text-[#D4AF37]">Touch</span>
@@ -70,7 +73,8 @@ export const Contact = () => {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="text-center text-gray-600 mb-16 max-w-2xl mx-auto"
         >
           We'd love to hear from you. Reach out for any inquiries.
@@ -84,7 +88,7 @@ export const Contact = () => {
             }}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             className="space-y-8"
           >
             <motion.div variants={{ hidden: { opacity: 0, x: -30 }, show: { opacity: 1, x: 0 } }} className="flex items-start gap-4 group">
@@ -130,7 +134,8 @@ export const Contact = () => {
           <motion.form
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             onSubmit={handleSubmit}
             className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-white/40 group hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.15)] transition-all duration-500"
           >

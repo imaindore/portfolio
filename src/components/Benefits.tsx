@@ -67,17 +67,19 @@ export const Benefits = () => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   return (
-    <section className="py-24 px-4 bg-[#FDFDFD] relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#FDFDFD] relative overflow-hidden">
       {/* Unique Theme: Abstract Geometric Shapes */}
       <motion.div 
         className="absolute top-20 -left-10 w-72 h-72 bg-[#D4AF37]/5 rounded-[40px] rotate-45 blur-2xl pointer-events-none"
         animate={{ rotate: [45, 90, 45], scale: [1, 1.1, 1] }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div 
         className="absolute bottom-20 -right-10 w-96 h-96 bg-[#E6C97A]/10 rounded-full blur-3xl pointer-events-none"
         animate={{ x: [0, -50, 0], y: [0, 50, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        style={{ willChange: 'transform' }}
       />
       <motion.div 
         className="absolute inset-0 pointer-events-none opacity-5" 
@@ -90,7 +92,8 @@ export const Benefits = () => {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-[#111111]"
         >
           Membership <span className="text-[#D4AF37]">Benefits</span>
@@ -98,7 +101,8 @@ export const Benefits = () => {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="text-center text-gray-600 mb-16 max-w-2xl mx-auto"
         >
           Unlock exclusive opportunities and resources
@@ -201,7 +205,8 @@ export const Benefits = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="flex justify-center mt-16"
         >
           <motion.button
@@ -218,11 +223,19 @@ export const Benefits = () => {
       {/* Selected Membership Popup Modal */}
       <AnimatePresence>
         {selectedPlan && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedPlan(null)}>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm" 
+            onClick={() => setSelectedPlan(null)}
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{ willChange: 'transform, opacity' }}
               onClick={(e) => e.stopPropagation()}
               className={`relative w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl ${
                 selectedPlan === 'diamond' ? 'max-w-5xl bg-[#111111] border border-[#D4AF37]/20' :
@@ -513,17 +526,24 @@ export const Benefits = () => {
                 </div>
               )}
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {isViewMoreOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{ willChange: 'transform, opacity' }}
               className="bg-white rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
             >
               <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
@@ -542,8 +562,8 @@ export const Benefits = () => {
                       key={index}
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
                       whileHover={{ y: -8 }}
                       className="relative group"
                     >
@@ -574,7 +594,7 @@ export const Benefits = () => {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>

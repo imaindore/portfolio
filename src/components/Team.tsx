@@ -12,7 +12,7 @@ interface TeamMember {
 const staticMembers: TeamMember[] = [
   {
     id: 'member-1',
-    name: 'Mr. Navin Khandelwal',
+    name: 'CA Navin Khandelwal',
     position: 'President',
     image_url: '/image/navinsir.jpeg',
     order_index: 1,
@@ -35,7 +35,7 @@ const staticMembers: TeamMember[] = [
     id: 'member-4',
     name: 'Ms. Chani Trivedi',
     position: 'Secretary',
-    image_url: '/image/chanimaam.jpg',
+    image_url: '/image/chanimaam.JPG',
     order_index: 4,
   },
   {
@@ -51,7 +51,7 @@ export const Team = () => {
   const [members, setMembers] = useState<TeamMember[]>(staticMembers);
 
   return (
-    <section className="py-24 px-4 bg-[#FAFAFA] relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#FAFAFA] relative overflow-hidden">
       {/* Unique Theme: Wavy Waves Background */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +69,8 @@ export const Team = () => {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-[#111111]"
         >
           Leadership <span className="text-[#D4AF37]">Team</span>
@@ -77,7 +78,8 @@ export const Team = () => {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="text-center text-gray-600 mb-16 max-w-2xl mx-auto"
         >
           Visionaries driving excellence and innovation
@@ -90,8 +92,8 @@ export const Team = () => {
               key={member.id}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
               whileHover={{ y: -15 }}
               className="group relative"
             >
@@ -107,11 +109,10 @@ export const Team = () => {
                   <motion.img
                     src={member.image_url}
                     alt={member.name}
-                    className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
+                    className="w-full h-full object-cover transition-all duration-700 ease-out"
                     whileHover={{ scale: 1.1, rotate: 2 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
                 </div>
 
                 <div className="p-6 xl:p-8 flex flex-col flex-1 relative bg-white z-20 overflow-hidden">
