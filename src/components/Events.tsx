@@ -8,7 +8,47 @@ interface Event {
   image_url: string;
   date: string;
 }
+// <===========================================Event card Glimpses===========================================>
+const staticGlimpses: Event[] = [
+  {
+    id: 'event-1',
+    title: 'Aman Gupta',
+    image_url: '/image/aman.JPG',
+    date: '2026-02-27',
+  },
+  {
+    id: 'event-1',
+    title: 'Aman Gupta',
+    image_url: '/image/aman1.JPG',
+    date: '2026-02-27',
+  },
+  {
+    id: 'event-6',
+    title: 'Acharya Manish Ji',
+    image_url: '/image/manish1.JPG',
+    date: '2026-02-27',
+  },
+  {
+    id: 'event-7',
+    title: 'AI Robotics integrates',
+    image_url: '/image/robot.JPG',
+    date: '2026-02-26',
+  },
+  {
+    id: 'event-3',
+    title: '33rd IMA International Management Conclave 2026',
+    image_url: '/image/conclave.JPG',
+    date: '2026-02-26',
+  },
+  {
+    id: 'event-4',
+    title: 'Suhani Shah',
+    image_url: '/image/suhani1.JPG',
+    date: '2026-02-27',
+  },
+];
 
+// <===========================================Event card1===========================================>
 const staticEvents: Event[] = [
 
   {
@@ -48,12 +88,6 @@ const staticEvents: Event[] = [
     date: '2026-02-27',
   },
   {
-    id: 'event-7',
-    title: 'AI Robotics integrates',
-    image_url: '/image/robot.JPG',
-    date: '2026-02-26',
-  },
-   {
     id: 'event-8',
     title: 'Dr. Niranjan Hiranandani',
     image_url: '/image/niranjan1.JPG',
@@ -126,6 +160,7 @@ export const Events = () => {
   const [events, setEvents] = useState<Event[]>(staticEvents);
   const [isViewMoreOpen, setIsViewMoreOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [activeTab, setActiveTab] = useState('events');
 
   useEffect(() => {
     // Database fetch removed to clear the demo events. 
@@ -201,7 +236,7 @@ export const Events = () => {
               onClick={() => setIsViewMoreOpen(true)}
               className="px-8 py-3 bg-gradient-to-r from-[#D4AF37] to-[#E6C97A] text-white rounded-full font-medium shadow-lg transition-all"
             >
-              View More Events
+              View Full Gallery
             </motion.button>
           </motion.div>
         )}
@@ -223,21 +258,74 @@ export const Events = () => {
               style={{ willChange: 'transform, opacity' }}
               className="bg-white rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
             >
-              <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">Event <span className="text-[#D4AF37]">Gallery</span></h3>
+              <div className="p-4 border-b border-gray-100 flex justify-center items-center bg-white sticky top-0 z-20 relative">
+                <div className="bg-gray-100 p-1.5 rounded-full flex items-center">
+                  <button
+                    onClick={() => setActiveTab('events')}
+                    className="relative px-8 py-2.5 text-base font-bold rounded-full transition-colors duration-300 focus:outline-none"
+                  >
+                    {activeTab === 'events' && (
+                      <motion.div
+                        layoutId="active-gallery-tab"
+                        className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#E6C97A] rounded-full shadow-md"
+                        transition={{ type: 'spring', stiffness: 350, damping: 35 }}
+                      />
+                    )}
+                    <span className={`relative z-10 transition-colors ${activeTab === 'events' ? 'text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                      Events
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('glimpses')}
+                    className="relative px-8 py-2.5 text-base font-bold rounded-full transition-colors duration-300 focus:outline-none"
+                  >
+                    {activeTab === 'glimpses' && (
+                      <motion.div
+                        layoutId="active-gallery-tab"
+                        className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#E6C97A] rounded-full shadow-md"
+                        transition={{ type: 'spring', stiffness: 350, damping: 35 }}
+                      />
+                    )}
+                    <span className={`relative z-10 transition-colors ${activeTab === 'glimpses' ? 'text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                    Glimpses
+                    </span>
+                  </button>
+                </div>
                 <button
                   onClick={() => setIsViewMoreOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-gray-900"
+                  className="absolute top-1/2 right-4 -translate-y-1/2 p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-gray-900"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
               <div className="p-6 overflow-y-auto flex-1">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {events.map((event, index) => (
-                    <EventCard key={event.id} event={event} index={index} onClick={setSelectedEvent} />
-                  ))}
-                </div>
+                <AnimatePresence mode="wait">
+                  {activeTab === 'events' && (
+                    <motion.div key="events-tab" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                        {events.map((event, index) => (
+                          <EventCard key={event.id} event={event} index={index} onClick={setSelectedEvent} />
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                  {activeTab === 'glimpses' && (
+                    <motion.div key="glimpses-tab" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
+                      {staticGlimpses.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                          {staticGlimpses.map((glimpse, index) => (
+                            <EventCard key={glimpse.id} event={glimpse} index={index} onClick={setSelectedEvent} />
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-center text-gray-500 py-16">
+                          <h4 className="text-xl font-semibold text-gray-700">No Glimpses to Display</h4>
+                          <p className="mt-2">This section is ready for new glimpses.</p>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </motion.div>
           </motion.div>
