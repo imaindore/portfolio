@@ -33,10 +33,9 @@ const staticHighlights: Highlight[] = [
     video_url: 'https://youtu.be/sDFDQynAqgc?si=BnQSySssVQdWnB0r',
   },  
   {
-    id: 'yt-2',
+    id: 'yt-6',
     title: 'IMA International Management Conclave (Jan. 2014) - Mr. Amitabh Bachchan',
-    video_url: 'https://youtu.be/15avzbRqx9Q?si=_CRbijfbX9-09X4y',
-    thumbnail_url: '/image/amitabh1.jpeg',
+    video_url: 'https://youtu.be/hQ3F7ndetYY?si=8Mu4li-YCrwxnTwf',
   },
   {
     id: 'yt-3',
@@ -54,9 +53,29 @@ const staticHighlights: Highlight[] = [
     video_url: 'https://youtu.be/eSCfBGyT_Qg?si=0-chVGjTUcmGOm4e',
   },
   {
-    id: 'yt-6',
-    title: 'IMA International Management Conclave (Jan. 2014) - Mr. Amitabh Bachchan',
-    video_url: 'https://youtu.be/hQ3F7ndetYY?si=8Mu4li-YCrwxnTwf',
+    id: 'yt-5',
+    title: 'Masterchef Pankaj Bhadouria on Flavours of Fame | IMA Women Leadership Conclave 2024',
+    video_url: 'https://youtu.be/CgLKmDXbxgo?si=UbhEyOsEnqsyfFw0',
+  },
+  {
+    id: 'yt-5',
+    title: 'Ms. Mandira Bedi,Actor, Anchor, Author and Fitness Enthusiast, at IMA Women Leadership Conclave 2023.',
+    video_url: 'https://youtu.be/FPrlaljqN2I?si=GCq3q81MffumMtqx',
+  },
+  {
+    id: 'yt-5',
+    title: 'Ms. Divya Dutta ,Actor, Model and Author, Mumbai, at IMA Women Leadership Conclave 2023.',
+    video_url: 'https://youtu.be/SLWl385oGj4?si=SNNyjz0ER3I2tp-J',
+  },
+  {
+    id: 'yt-5',
+    title: 'Avani Davda, Director at Persistent Systems Public Ltd. at IMA Women Leadership Conclave 2023.',
+    video_url: 'https://youtu.be/Mg7f3DBESlM?si=K7EhBGgR0FnZSinq',
+  },
+  {
+    id: 'yt-5',
+    title: 'Puja Puneet on Overcoming Self-Doubts with High-Energy Insights | IMA Women Leadership Conclave 2024',
+    video_url: 'https://youtu.be/BsuAz-GI7Xw?si=-pnzplCQl3cquF3b',
   },
 ];
 

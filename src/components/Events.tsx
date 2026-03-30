@@ -10,17 +10,24 @@ interface Event {
 }
 
 const staticEvents: Event[] = [
-  {
-    id: 'event-1',
-    title: 'Aman Gupta',
-    image_url: '/image/aman.JPG',
-    date: '2026-02-27',
-  },
+
   {
     id: 'event-2',
     title: 'Amitabh Bachchan',
     image_url: '/image/amitabh.jpeg',
     date: '2014-01-26',
+  },
+  {
+    id: 'event-6',
+    title: 'A. P. J. Abdul Kalam',
+    image_url: '/image/apjsir.png',
+    date: '2012-06-23',
+  },
+  {
+    id: 'event-1',
+    title: 'Aman Gupta',
+    image_url: '/image/aman.JPG',
+    date: '2026-02-27',
   },
   {
     id: 'event-3',
@@ -29,35 +36,47 @@ const staticEvents: Event[] = [
     date: '2026-02-26',
   },
   {
+    id: 'event-9',
+    title: 'Baba Ramdev',
+    image_url: '/image/ramdev.png',
+    date: '2020-01-16',
+  },
+  {
     id: 'event-4',
     title: 'Suhani Shah',
     image_url: '/image/suhani4.JPG',
     date: '2026-02-27',
   },
   {
-    id: 'event-6',
-    title: 'Suhani Shah',
-    image_url: '/image/suhani1.JPG',
-    date: '2026-02-27',
-  },
-  // {
-  //   id: 'event-7',
-  //   title: 'Acharya Manish Ji',
-  //   image_url: '/image/manish.JPG',
-  //   date: '2026-02-27',
-  // },
-  {
-    id: 'event-8',
+    id: 'event-7',
     title: 'AI Robotics integrates',
     image_url: '/image/robot.JPG',
     date: '2026-02-26',
   },
    {
-    id: 'event-10',
+    id: 'event-8',
     title: 'Dr. Niranjan Hiranandani',
     image_url: '/image/niranjan1.JPG',
     date: '2026-02-26',
-  }
+  },
+  {
+    id: 'event-10',
+    title: 'Jagadish Vasudev (Sadhguru)',
+    image_url: '/image/sadhguru.png',
+    date: '2015-02',
+  },
+  {
+    id: 'event-11',
+    title: 'Nitin Gadkari',
+    image_url: '/image/nitin.png',
+    date: '2020-01-18',
+  },
+  {
+    id: 'event-12',
+    title: 'Kumar Mangalam Birla',
+    image_url: '/image/birla.png',
+    date: '2012-01-19',
+  },
 ];
 
 const EventCard = ({

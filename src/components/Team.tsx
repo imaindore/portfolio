@@ -14,7 +14,7 @@ const staticMembers: TeamMember[] = [
     id: 'member-1',
     name: 'CA Navin Khandelwal',
     position: 'President',
-    image_url: '/image/navinsir.jpeg',
+    image_url: '/image/navinsir.png',
     order_index: 1,
   },
   {
@@ -28,7 +28,7 @@ const staticMembers: TeamMember[] = [
     id: 'member-3',
     name: 'Mr. Sapan Shah',
     position: 'Vice President',
-    image_url: '/image/sapansir.jpeg',
+    image_url: '/image/sapansir.png',
     order_index: 3,
   },
   {
