@@ -231,27 +231,22 @@ export const Benefits = () => {
             onClick={() => setSelectedPlan(null)}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              style={{ willChange: 'transform, opacity' }}
               onClick={(e) => e.stopPropagation()}
-              className={`relative w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl ${
-                selectedPlan === 'diamond' ? 'max-w-5xl bg-[#111111] border border-[#D4AF37]/20' :
-                selectedPlan === 'platinum' ? 'max-w-5xl bg-[#f4f5f7] border border-[#b0b5b9]/30' :
-                selectedPlan === 'gold' ? 'max-w-2xl bg-gradient-to-b from-[#FFF9F0] to-white border border-[#D4AF37]/30' :
-                'max-w-2xl bg-white border border-gray-200'
+              className={`relative w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl backdrop-blur-xl ${
+                selectedPlan === 'diamond' ? 'max-w-5xl bg-black/70 border border-white/20 text-white' :
+                'bg-white/80 border border-white/20 ' + (selectedPlan === 'platinum' ? 'max-w-5xl' : 'max-w-2xl')
               }`}
             >
               <button
                 onClick={() => setSelectedPlan(null)}
                 className={`absolute top-4 right-4 z-50 p-2 rounded-full transition-colors backdrop-blur-md ${
                   selectedPlan === 'diamond'
-                    ? 'bg-white/10 hover:bg-white/20 text-white' 
-                    : selectedPlan === 'platinum'
-                    ? 'bg-black/10 hover:bg-black/20 text-gray-800'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+                    ? 'bg-white/10 hover:bg-white/20 text-white'
+                    : 'bg-black/5 hover:bg-black/10 text-gray-800'
                 }`}
               >
                 <X className="w-6 h-6" />
@@ -383,7 +378,7 @@ export const Benefits = () => {
               {selectedPlan === 'diamond' && (
                 <div className="flex flex-col md:flex-row w-full min-h-[500px]">
                   {/* Left Column: Pricing and Contact */}
-                  <div className="w-full md:w-2/5 bg-gradient-to-br from-[#D4AF37] to-[#E6C97A] p-6 md:p-10 text-[#111111] flex flex-col justify-between relative overflow-hidden">
+                  <div className="w-full md:w-2/5 bg-gradient-to-br from-[#D4AF37] to-[#E6C97A] p-6 md:p-10 text-black flex flex-col justify-between relative overflow-hidden md:rounded-l-3xl">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
                     
                     <div className="relative z-10">
@@ -424,7 +419,7 @@ export const Benefits = () => {
                   </div>
 
                   {/* Right Column: Benefits List */}
-                  <div className="w-full md:w-3/5 p-6 md:p-10 relative">
+                  <div className="w-full md:w-3/5 p-6 md:p-10 relative bg-black/20 md:rounded-r-3xl">
                     <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none" />
                     <h4 className="text-xl md:text-2xl font-bold text-white mb-8 flex items-center gap-3">
                       <div className="w-2 h-8 bg-[#D4AF37] rounded-full" />
@@ -456,7 +451,7 @@ export const Benefits = () => {
               {selectedPlan === 'platinum' && (
                 <div className="flex flex-col md:flex-row w-full min-h-[500px]">
                   {/* Left Column: Pricing and Contact */}
-                  <div className="w-full md:w-2/5 bg-gradient-to-br from-[#d1d5d8] to-[#b0b5b9] p-6 md:p-10 text-[#111111] flex flex-col justify-between relative overflow-hidden">
+                  <div className="w-full md:w-2/5 bg-gradient-to-br from-[#d1d5d8] to-[#b0b5b9] p-6 md:p-10 text-[#111111] flex flex-col justify-between relative overflow-hidden md:rounded-l-3xl">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
                     
                     <div className="relative z-10">
@@ -497,7 +492,7 @@ export const Benefits = () => {
                   </div>
 
                   {/* Right Column: Benefits List */}
-                  <div className="w-full md:w-3/5 p-6 md:p-10 relative bg-[#f4f5f7]">
+                  <div className="w-full md:w-3/5 p-6 md:p-10 relative bg-black/5 md:rounded-r-3xl">
                     <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#b0b5b9]/20 rounded-full blur-3xl pointer-events-none" />
                     <h4 className="text-xl md:text-2xl font-bold text-[#111111] mb-8 flex items-center gap-3">
                       <div className="w-2 h-8 bg-[#8e9399] rounded-full" />
@@ -539,14 +534,13 @@ export const Benefits = () => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              style={{ willChange: 'transform, opacity' }}
-              className="bg-white rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
+              className="bg-white/80 backdrop-blur-lg border border-white/20 rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
             >
-              <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
+              <div className="p-6 border-b border-black/10 flex justify-between items-center bg-white/70 backdrop-blur-md sticky top-0 z-20">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">All <span className="text-[#D4AF37]">Benefits</span></h3>
                 <button
                   onClick={() => setIsViewMoreOpen(false)}

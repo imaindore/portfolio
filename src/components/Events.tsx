@@ -1,200 +1,81 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { Calendar, X } from 'lucide-react';
+import { useState } from 'react';
+import { X, Crown, Award, Users, Coffee, Briefcase, Rocket } from 'lucide-react';
 
-interface Event {
+interface Program {
   id: string;
   title: string;
-  image_url: string;
-  date: string;
+  description: string;
+  image_urls: string[];
+  icon: React.ElementType;
+  gradient: string;
 }
-// <===========================================Event card Glimpses===========================================>
-const staticGlimpses: Event[] = [
+
+const programCards: Program[] = [
   {
-    id: 'event-1',
-    title: 'Aman Gupta',
-    image_url: '/image/aman.JPG',
-    date: '2026-02-27',
+    id: 'flagship',
+    title: 'IMA Flagship Event',
+    description: 'Our premier annual conclave featuring global thought leaders.',
+    image_urls: ['/image/aman.JPG','/image/amitabh.jpeg', '/image/suhani4.JPG', '/image/niranjan2.JPG','/image/birla.png','/image/nitin.png','/image/anupam.jpeg','/image/sadhguru.png'],
+    icon: Crown,
+    gradient: 'from-purple-600/30 to-blue-600/30',
   },
   {
-    id: 'event-1',
-    title: 'Aman Gupta',
-    image_url: '/image/aman1.JPG',
-    date: '2026-02-27',
+    id: 'signature',
+    title: 'IMA Signature Program',
+    description: 'Exclusive Program for CEOs and Vertical Heads.',
+    image_urls: [ '/image/apjsir.png','/image/ramdev.png','/image/rajiv.jpeg'],
+    icon: Award,
+    gradient: 'from-green-500/30 to-cyan-500/30',
   },
   {
-    id: 'event-6',
-    title: 'Acharya Manish Ji',
-    image_url: '/image/manish1.JPG',
-    date: '2026-02-27',
+    id: 'training',
+    title: 'Training Program',
+    description: 'Skill development workshops and management programs.',
+    image_urls: ['/image/robot.JPG', '/image/manish1.JPG', '/image/niranjan1.JPG'],
+    icon: Users,
+    gradient: 'from-orange-500/30 to-yellow-500/30',
   },
   {
-    id: 'event-7',
-    title: 'AI Robotics integrates',
-    image_url: '/image/robot.JPG',
-    date: '2026-02-26',
+    id: 'evening',
+    title: 'Evening Program / Open Forum',
+    description: 'IMA Learning & networking sessions.',
+    image_urls: ['/image/ev.jpeg','/image/ev1.jpeg','/image/ev2.jpeg','/image/ev3.jpeg'],
+    icon: Coffee,
+    gradient: 'from-red-500/30 to-pink-500/30',
   },
   {
-    id: 'event-3',
-    title: '33rd IMA International Management Conclave 2026',
-    image_url: '/image/conclave.JPG',
-    date: '2026-02-26',
+    id: 'women',
+    title: 'Women Conclave',
+    description: 'Empowering and celebrating women in leadership.',
+    image_urls: ['/image/wlc1.JPG','/image/wlc2.JPG','/image/wlc.JPG'],
+    icon: Briefcase,
+    gradient: 'from-pink-500/30 to-purple-500/30',
   },
   {
-    id: 'event-4',
-    title: 'Suhani Shah',
-    image_url: '/image/suhani1.JPG',
-    date: '2026-02-27',
+    id: 'startup',
+    title: 'Startup & Innovation',
+    description: 'Fostering the next generation of entrepreneurs and ideas.',
+    image_urls: ['/image/robot.JPG','/image/ibricx.JPG','/image/inbestor.JPG','/image/bonton.JPG','/image/arihant.JPG'],
+    icon: Rocket,
+    gradient: 'from-teal-500/30 to-lime-500/30',
   },
 ];
-
-// <===========================================Event card1===========================================>
-const staticEvents: Event[] = [
-
-  {
-    id: 'event-2',
-    title: 'Amitabh Bachchan',
-    image_url: '/image/amitabh.jpeg',
-    date: '2014-01-26',
-  },
-  {
-    id: 'event-6',
-    title: 'A. P. J. Abdul Kalam',
-    image_url: '/image/apjsir.png',
-    date: '2012-06-23',
-  },
-  {
-    id: 'event-1',
-    title: 'Aman Gupta',
-    image_url: '/image/aman.JPG',
-    date: '2026-02-27',
-  },
-  {
-    id: 'event-3',
-    title: 'Dr. Niranjan Hiranandani',
-    image_url: '/image/niranjan2.JPG',
-    date: '2026-02-26',
-  },
-  {
-    id: 'event-9',
-    title: 'Baba Ramdev',
-    image_url: '/image/ramdev.png',
-    date: '2020-01-16',
-  },
-  {
-    id: 'event-4',
-    title: 'Suhani Shah',
-    image_url: '/image/suhani4.JPG',
-    date: '2026-02-27',
-  },
-  {
-    id: 'event-8',
-    title: 'Dr. Niranjan Hiranandani',
-    image_url: '/image/niranjan1.JPG',
-    date: '2026-02-26',
-  },
-  {
-    id: 'event-10',
-    title: 'Jagadish Vasudev (Sadhguru)',
-    image_url: '/image/sadhguru.png',
-    date: '2015-02',
-  },
-  {
-    id: 'event-11',
-    title: 'Nitin Gadkari',
-    image_url: '/image/nitin.png',
-    date: '2020-01-18',
-  },
-  {
-    id: 'event-12',
-    title: 'Kumar Mangalam Birla',
-    image_url: '/image/birla.png',
-    date: '2012-01-19',
-  },
-];
-
-const EventCard = ({
-  event,
-  index,
-  onClick,
-}: {
-  event: Event;
-  index: number;
-  onClick: (event: Event) => void;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.5, delay: (index % 3) * 0.1, ease: 'easeOut' }}
-    whileHover={{ y: -10, rotateY: 3, rotateX: 3 }}
-    onClick={() => onClick(event)}
-    className="group relative overflow-hidden rounded-3xl shadow-xl bg-white cursor-pointer border border-transparent hover:border-[#D4AF37]/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.2)]"
-  >
-    <div className="relative aspect-[4/3] overflow-hidden">
-      <motion.img
-        src={event.image_url}
-        alt={event.title}
-        loading="lazy"
-        decoding="async"
-        className="w-full h-full object-cover transition-all duration-700 ease-out"
-        whileHover={{ scale: 1.15 }}
-        transition={{ duration: 0.5 }}
-      />
-      <motion.div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </div>
-    <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-t from-black/80 to-transparent">
-      <div className="flex items-center gap-2 text-[#E6C97A] mb-2">
-        <Calendar className="w-4 h-4" />
-        <span className="text-sm">
-          {event.date ? new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : ''}
-        </span>
-      </div>
-      <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
-     
-    </div>
-  </motion.div>
-);
 
 export const Events = () => {
-  const [events, setEvents] = useState<Event[]>(staticEvents);
-  const [isViewMoreOpen, setIsViewMoreOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-  const [activeTab, setActiveTab] = useState('events');
-
-  useEffect(() => {
-    // Database fetch removed to clear the demo events. 
-    // You can add your actual events manually in the staticEvents array above.
-  }, []);
-
-  const displayedEvents = events.slice(0, 3);
+  const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#FAFAFA] relative overflow-hidden">
-      {/* Unique Theme: Grid Pattern with Animated Orbs */}
-      <motion.div 
-        className="absolute inset-0 pointer-events-none opacity-[0.04]" 
-        style={{ backgroundImage: 'linear-gradient(#D4AF37 1px, transparent 1px), linear-gradient(90deg, #D4AF37 1px, transparent 1px)', backgroundSize: '40px 40px', willChange: 'background-position' }} 
-        animate={{ backgroundPosition: ['0px 0px', '40px 40px'] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-      />
-      
-      <motion.div
-        className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, -50, 0],
-          y: [0, 50, 0],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ willChange: 'transform' }}
-      />
-      <motion.div
-        className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-[#E6C97A]/20 to-transparent rounded-full blur-3xl"
-        animate={{ scale: [1, 1.3, 1], x: [0, 50, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ willChange: 'transform' }}
-      />
+    <section id="events" className="py-16 md:py-24 px-4 md:px-8 text-white relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/image/front.jpg"
+          alt="IMA Event Background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.h2
@@ -202,53 +83,71 @@ export const Events = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-[#111111]"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-white"
         >
-          Event <span className="text-[#D4AF37]">Gallery</span>
+          IMA <span className="text-[#D4AF37]">Programs</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-          className="text-center text-gray-600 mb-16 max-w-2xl mx-auto"
+          className="text-center text-gray-300 mb-16 max-w-2xl mx-auto"
         >
-          Capturing moments of excellence and collaboration
+          A look into our various programs and initiatives
         </motion.p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {displayedEvents.map((event, index) => (
-            <EventCard key={event.id} event={event} index={index} onClick={setSelectedEvent} />
-          ))}
-        </div>
-
-        {events.length > 3 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="mt-16 flex justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(212, 175, 55, 0.2)' }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsViewMoreOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-[#D4AF37] to-[#E6C97A] text-white rounded-full font-medium shadow-lg transition-all"
+        <motion.div 
+          variants={{
+            hidden: { opacity: 0 },
+            show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+          }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {programCards.map((program, index) => (
+            <motion.div
+              key={program.id}
+              variants={{
+                hidden: { opacity: 0, y: 50, scale: 0.95 },
+                show: { opacity: 1, y: 0, scale: 1 }
+              }}
+              whileHover={{ 
+                translateY: -5, 
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' 
+              }}
+              onClick={() => setSelectedProgram(program)}
+              className="group relative rounded-2xl p-6 text-left cursor-pointer transition-all duration-300 h-full flex flex-col
+                         bg-white/5 backdrop-blur-md border border-[#D4AF37] shadow-lg"
             >
-              View Full Gallery
-            </motion.button>
-          </motion.div>
-        )}
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${program.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-400`}></div>
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 border border-white/10">
+                  <program.icon className="w-6 h-6 text-[#D4AF37]" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">{program.title}</h3>
+                <p className="text-gray-300 text-sm mb-6 flex-grow">{program.description}</p>
+                <div className="mt-auto text-right">
+                  <span className="inline-block px-3 py-1.5 text-xs font-semibold text-white bg-white/10 rounded-full group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                    View Gallery →
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
       <AnimatePresence>
-        {isViewMoreOpen && (
+        {selectedProgram && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedProgram(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -256,117 +155,69 @@ export const Events = () => {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{ willChange: 'transform, opacity' }}
-              className="bg-white rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
+              className="bg-white/80 backdrop-blur-lg border border-white/20 rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-4 border-b border-gray-100 flex justify-center items-center bg-white sticky top-0 z-20 relative">
-                <div className="bg-gray-100 p-1.5 rounded-full flex items-center">
-                  <button
-                    onClick={() => setActiveTab('events')}
-                    className="relative px-8 py-2.5 text-base font-bold rounded-full transition-colors duration-300 focus:outline-none"
-                  >
-                    {activeTab === 'events' && (
-                      <motion.div
-                        layoutId="active-gallery-tab"
-                        className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#E6C97A] rounded-full shadow-md"
-                        transition={{ type: 'spring', stiffness: 350, damping: 35 }}
-                      />
-                    )}
-                    <span className={`relative z-10 transition-colors ${activeTab === 'events' ? 'text-white' : 'text-gray-600 hover:text-gray-900'}`}>
-                      Events
-                    </span>
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('glimpses')}
-                    className="relative px-8 py-2.5 text-base font-bold rounded-full transition-colors duration-300 focus:outline-none"
-                  >
-                    {activeTab === 'glimpses' && (
-                      <motion.div
-                        layoutId="active-gallery-tab"
-                        className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#E6C97A] rounded-full shadow-md"
-                        transition={{ type: 'spring', stiffness: 350, damping: 35 }}
-                      />
-                    )}
-                    <span className={`relative z-10 transition-colors ${activeTab === 'glimpses' ? 'text-white' : 'text-gray-600 hover:text-gray-900'}`}>
-                    Glimpses
-                    </span>
-                  </button>
-                </div>
+              <div className="p-6 border-b border-black/10 flex justify-between items-center bg-white/70 backdrop-blur-md sticky top-0 z-20">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">{selectedProgram.title}</h3>
                 <button
-                  onClick={() => setIsViewMoreOpen(false)}
-                  className="absolute top-1/2 right-4 -translate-y-1/2 p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-gray-900"
+                  onClick={() => { setSelectedProgram(null); setSelectedImage(null); }}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-gray-900"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
               <div className="p-6 overflow-y-auto flex-1">
-                <AnimatePresence mode="wait">
-                  {activeTab === 'events' && (
-                    <motion.div key="events-tab" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                        {events.map((event, index) => (
-                          <EventCard key={event.id} event={event} index={index} onClick={setSelectedEvent} />
-                        ))}
-                      </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                  {selectedProgram.image_urls.map((url, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="aspect-video overflow-hidden rounded-xl cursor-pointer group relative border border-black/10 shadow-lg bg-gray-100"
+                      onClick={() => setSelectedImage(url)}
+                    >
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10" />
+                      <img src={url} alt={`${selectedProgram.title} image ${index + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </motion.div>
-                  )}
-                  {activeTab === 'glimpses' && (
-                    <motion.div key="glimpses-tab" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
-                      {staticGlimpses.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                          {staticGlimpses.map((glimpse, index) => (
-                            <EventCard key={glimpse.id} event={glimpse} index={index} onClick={setSelectedEvent} />
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="text-center text-gray-500 py-16">
-                          <h4 className="text-xl font-semibold text-gray-700">No Glimpses to Display</h4>
-                          <p className="mt-2">This section is ready for new glimpses.</p>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Full-screen Image Modal */}
       <AnimatePresence>
-        {selectedEvent && (
-          <motion.div 
+        {selectedImage && (
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-md" 
-            onClick={() => setSelectedEvent(null)}
+            className="fixed inset-0 z-[80] flex items-center justify-center p-4 md:p-8 bg-black/95 backdrop-blur-xl"
+            onClick={() => setSelectedImage(null)}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              style={{ willChange: 'transform, opacity' }}
-              className="relative w-full max-w-5xl flex flex-col items-center"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              className="absolute top-4 right-4 md:top-8 md:right-8 z-[90] p-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full backdrop-blur-md transition-all shadow-xl"
             >
-              <button
-                onClick={() => setSelectedEvent(null)}
-                className="fixed top-4 right-4 md:top-8 md:right-8 z-[70] p-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full backdrop-blur-md transition-all shadow-xl"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <img
-                src={selectedEvent.image_url}
-                alt={selectedEvent.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
-              />
-              <div className="mt-6 text-center text-white">
-                <h3 className="text-2xl font-bold mb-2">{selectedEvent.title}</h3>
-              </div>
-            </motion.div>
+              <X className="w-6 h-6" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              src={selectedImage}
+              alt="Full screen"
+              className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            />
           </motion.div>
         )}
       </AnimatePresence>

@@ -77,6 +77,11 @@ const staticHighlights: Highlight[] = [
     title: 'Puja Puneet on Overcoming Self-Doubts with High-Energy Insights | IMA Women Leadership Conclave 2024',
     video_url: 'https://youtu.be/BsuAz-GI7Xw?si=-pnzplCQl3cquF3b',
   },
+  {
+    id: 'yt-5',
+    title: 'Highlights of IMA International Management Conclave 2024 | A Legacy of Leadership and Innovation',
+    video_url: 'https://youtu.be/5ZBI0oLvSM0?si=MCe0Qk2y03J9Ie-H',
+  },
 ];
 
 const HighlightCard = ({
@@ -236,14 +241,13 @@ export const Highlights = () => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              style={{ willChange: 'transform, opacity' }}
-              className="bg-white border border-gray-100 rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
+              className="bg-white/80 backdrop-blur-lg border border-white/20 rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
             >
-              <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
+              <div className="p-6 border-b border-black/10 flex justify-between items-center bg-white/70 backdrop-blur-md sticky top-0 z-20">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">All <span className="text-[#D4AF37]">Highlights</span></h3>
                 <button
                   onClick={() => setIsModalOpen(false)}
@@ -273,11 +277,10 @@ export const Highlights = () => {
             className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-sm"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              style={{ willChange: 'transform, opacity' }}
               className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
             >
               <button

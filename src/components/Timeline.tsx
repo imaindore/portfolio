@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Trophy, Star, Calendar, GraduationCap, Rocket, TrendingUp } from 'lucide-react';
+import { Trophy, Star, Calendar, GraduationCap, Rocket, TrendingUp, Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
+import { useRef, useState } from 'react';
 
 const journeyPoints = [
   {
@@ -35,6 +36,36 @@ const journeyPoints = [
 ];
 
 export const Timeline = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!videoRef.current.muted);
+    }
+  };
+
+  const toggleFullScreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      }
+    }
+  };
   return (
     <section className="py-16 md:py-24 px-4 md:px-8 bg-white relative overflow-hidden">
       {/* Unique Theme: Animated Diagonal Stripes & Soft Blobs */}
@@ -111,14 +142,77 @@ export const Timeline = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="w-full lg:w-1/2 relative"
+            className="w-full lg:w-1/2 flex flex-col gap-8"
           >
-            <div className="relative group h-[350px] sm:h-[450px] lg:h-[600px] w-full mt-8 lg:mt-0">
+            <motion.div
+              className="relative group aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-black"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <video
+                ref={videoRef}
+                src="/image/ima.mp4"
+                title="IMA Song"
+                poster="/image/ima1.png"
+                className="w-full h-full absolute top-0 left-0 object-cover z-0"
+                loop
+                playsInline
+                preload="metadata"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                // Sync state with video's muted property
+                onVolumeChange={() => setIsMuted(videoRef.current?.muted ?? true)}
+              />
+              <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10">
+                <h4 className="text-white font-bold text-lg">IMA Song</h4>
+              </div>
+              <div
+                className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center cursor-pointer"
+                onClick={togglePlayPause}
+              >
+                <div
+                  className={`w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 ${
+                    isPlaying ? 'opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100' : 'opacity-100 scale-100'
+                  }`}
+                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                >
+                  {isPlaying ? (
+                    <Pause className="w-8 h-8" fill="white" />
+                  ) : (
+                    <Play className="w-9 h-9 ml-1" fill="white" />
+                  )}
+                </div>
+              </div>
+              <div className="absolute bottom-4 right-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <button
+                  className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
+                  onClick={toggleMute}
+                  aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-5 h-5" />
+                  ) : (
+                    <Volume2 className="w-5 h-5" />
+                  )}
+                </button>
+                <button
+                  className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
+                  onClick={toggleFullScreen}
+                  aria-label="Fullscreen"
+                >
+                  <Maximize className="w-5 h-5" />
+                </button>
+              </div>
+            </motion.div>
+
+            <div className="relative group h-[300px] sm:h-[400px] w-full">
               <div className="absolute top-8 right-4 w-[80%] h-[70%] bg-gradient-to-tr from-[#D4AF37] to-[#E6C97A] rounded-[2rem] transform rotate-3 opacity-20 blur-xl transition-transform duration-700 group-hover:rotate-6" />
               <div className="absolute top-8 right-4 w-[80%] h-[70%] bg-gradient-to-tr from-[#D4AF37] to-[#E6C97A] rounded-3xl transform -rotate-3 scale-105 opacity-30 transition-transform duration-500 group-hover:rotate-0" />
               
               {/* Image 1 - Top Right */}
-              <div className="absolute top-0 right-0 w-[80%] h-[70%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-10 transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4 group-hover:rotate-3">
+              <div className="absolute top-0 right-0 w-[70%] h-[80%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-10 transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2 group-hover:rotate-3">
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
@@ -130,7 +224,7 @@ export const Timeline = () => {
               </div>
 
               {/* Image 2 - Bottom Left */}
-              <div className="absolute bottom-0 left-0 w-[60%] h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-20 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4 group-hover:-rotate-3">
+              <div className="absolute bottom-0 left-0 w-[60%] h-[70%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-20 transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:-rotate-3">
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
@@ -146,8 +240,8 @@ export const Timeline = () => {
                 initial={{ opacity: 0, y: 50, rotate: -10 }}
                 whileInView={{ opacity: 1, y: 0, rotate: -5 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: 0.6, type: "spring", bounce: 0.5 }}
-                className="absolute bottom-4 right-4 sm:bottom-1/4 sm:-right-4 md:-right-8 z-30"
+                transition={{ delay: 0.8, type: "spring", bounce: 0.5 }}
+                className="absolute -bottom-8 -right-4 sm:bottom-0 sm:-right-8 z-30"
               >
                 <motion.div 
                   animate={{ y: [-5, 5, -5] }}
@@ -172,8 +266,8 @@ export const Timeline = () => {
                 initial={{ opacity: 0, y: -50, rotate: 10 }}
                 whileInView={{ opacity: 1, y: 0, rotate: 5 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: 0.8, type: "spring", bounce: 0.5 }}
-                className="absolute top-4 left-4 sm:top-1/4 sm:-left-4 md:-left-8 z-30"
+                transition={{ delay: 1.0, type: "spring", bounce: 0.5 }}
+                className="absolute -top-8 -left-4 sm:top-0 sm:-left-8 z-30"
               >
                 <motion.div
                   animate={{ y: [5, -5, 5] }}
