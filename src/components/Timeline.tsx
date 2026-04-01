@@ -145,65 +145,71 @@ export const Timeline = () => {
             className="w-full lg:w-1/2 flex flex-col gap-8"
           >
             <motion.div
-              className="relative group aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-black"
+              className="relative group aspect-video w-full rounded-[2.5rem] p-3 sm:p-4 bg-[#FAFAFA] shadow-[15px_15px_30px_rgba(212,175,55,0.1),-15px_-15px_30px_rgba(255,255,255,1),inset_6px_6px_15px_rgba(212,175,55,0.05),inset_-6px_-6px_15px_rgba(255,255,255,0.8)]"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <video
-                ref={videoRef}
-                src="/image/ima.mp4"
-                title="IMA Song"
-                poster="/image/ima1.png"
-                className="w-full h-full absolute top-0 left-0 object-cover z-0"
-                loop
-                playsInline
-                preload="metadata"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                // Sync state with video's muted property
-                onVolumeChange={() => setIsMuted(videoRef.current?.muted ?? true)}
-              />
-              <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10">
-                <h4 className="text-white font-bold text-lg">IMA Song</h4>
-              </div>
-              <div
-                className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center cursor-pointer"
-                onClick={togglePlayPause}
-              >
-                <div
-                  className={`w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 ${
-                    isPlaying ? 'opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100' : 'opacity-100 scale-100'
-                  }`}
-                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                >
-                  {isPlaying ? (
-                    <Pause className="w-8 h-8" fill="white" />
-                  ) : (
-                    <Play className="w-9 h-9 ml-1" fill="white" />
-                  )}
+              <div className="relative w-full h-full rounded-3xl overflow-hidden bg-black shadow-[inset_0px_0px_20px_rgba(0,0,0,0.5)]">
+                <video
+                  ref={videoRef}
+                  src="/image/ima.mp4"
+                  title="IMA Song"
+                  poster="/image/ima1.png"
+                  className="w-full h-full absolute top-0 left-0 object-cover z-0"
+                  loop
+                  playsInline
+                  preload="metadata"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  // Sync state with video's muted property
+                  onVolumeChange={() => setIsMuted(videoRef.current?.muted ?? true)}
+                />
+                
+                {/* Inner shadow overlay for 3D depth over the video */}
+                <div className="absolute inset-0 shadow-[inset_0px_0px_20px_rgba(0,0,0,0.6)] pointer-events-none z-10" />
+
+                <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10">
+                  <h4 className="text-white font-bold text-lg">IMA Song</h4>
                 </div>
-              </div>
-              <div className="absolute bottom-4 right-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                <button
-                  className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
-                  onClick={toggleMute}
-                  aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                <div
+                  className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center cursor-pointer z-10"
+                  onClick={togglePlayPause}
                 >
-                  {isMuted ? (
-                    <VolumeX className="w-5 h-5" />
-                  ) : (
-                    <Volume2 className="w-5 h-5" />
-                  )}
-                </button>
-                <button
-                  className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
-                  onClick={toggleFullScreen}
-                  aria-label="Fullscreen"
-                >
-                  <Maximize className="w-5 h-5" />
-                </button>
+                  <div
+                    className={`w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 ${
+                      isPlaying ? 'opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100' : 'opacity-100 scale-100'
+                    }`}
+                    aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-8 h-8" fill="white" />
+                    ) : (
+                      <Play className="w-9 h-9 ml-1" fill="white" />
+                    )}
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <button
+                    className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
+                    onClick={toggleMute}
+                    aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                  >
+                    {isMuted ? (
+                      <VolumeX className="w-5 h-5" />
+                    ) : (
+                      <Volume2 className="w-5 h-5" />
+                    )}
+                  </button>
+                  <button
+                    className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
+                    onClick={toggleFullScreen}
+                    aria-label="Fullscreen"
+                  >
+                    <Maximize className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             </motion.div>
 
@@ -277,7 +283,7 @@ export const Timeline = () => {
                 >
                   <div className="flex items-center gap-3 sm:gap-4">
                     <div>
-                      <div className="text-2xl sm:text-3xl font-bold text-[#111111]">1L<span className="text-[#D4AF37]">+</span></div>
+                      <div className="text-2xl sm:text-3xl font-bold text-[#111111]">2L<span className="text-[#D4AF37]">+</span></div>
                       <div className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-wider text-right">Professionals<br/>Impacted</div>
                     </div>
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center">

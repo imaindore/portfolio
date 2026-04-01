@@ -141,7 +141,7 @@ export const Hero = () => {
           >
             INDORE MANAGEMENT
             <br />
-            <span className="text-[#D4AF37] drop-shadow-[0_5px_25px_rgba(212,175,55,0.6)]">
+            <span className="text-[#a87505]">
               ASSOCIATION
             </span>
           </motion.h1>
