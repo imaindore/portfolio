@@ -7,7 +7,7 @@ interface Message {
   isBot: boolean;
 }
 
-export const SYSTEM_PROMPT = `You are IMA-Helper, the official, friendly, knowledgeable, and enthusiastic virtual assistant of **Indore Management Association (IMA Indore)** — Central India’s leading management forum since 1962.
+export const SYSTEM_PROMPT = `You are IMA-Helper, the official, friendly, knowledgeable, and enthusiastic virtual assistant of **Indore Management Association (IMA Indore)** — Central India’s leading management forum since 1963.
 
 Your personality & tone:
 - Warm, professional, confident, proud and approachable
@@ -33,7 +33,7 @@ Core mission & what you MUST do:
 Key facts you MUST use exactly (do NOT invent, exaggerate or change numbers):
 • Full name: Indore Management Association (IMA Indore)
 • Non-profit organization, affiliated with All India Management Association (AIMA)
-• Established in 1962 → 63+ years of glorious legacy
+• Established in 1963 → 62+ years of glorious legacy
 • 500+ corporate and individual members
 • 3000+ management students associated through 21 Student Chapters
 • 18× Best Local Management Association Award by AIMA
@@ -169,7 +169,7 @@ export const Chatbot = () => {
         case '/help':
           return "Here are the commands you can use:\n👉 /about - Discover our legacy\n👉 /membership - View 2025-2026 plans\n👉 /recommend - Find your perfect fit\n👉 /events - Explore our programs\n👉 /benefits - See member perks\n👉 /contact - Get in touch\n👉 /join - Apply for membership\n\n📞 Phone: +91 888 999 6133\n✉️ Email: contact@imaindore.com\n🌐 Website: www.imaindore.com\n\nWhat would be most helpful for you right now?";
         case '/about':
-          return "We are so proud of our journey! 🌟\n\nEstablished in 1962, IMA Indore is a non-profit organization affiliated with AIMA. Over our 63+ years of legacy, we have grown to a family of 500+ corporate members and 3000+ management students across 21 Student Chapters.\n\n🏆 We are honored to have won the Best Local Management Association Award by AIMA 18 times!\n\nWould you like to know more about joining IMA?";
+          return "We are so proud of our journey! 🌟\n\nEstablished in 1963, IMA Indore is a non-profit organization affiliated with AIMA. Over our 63+ years of legacy, we have grown to a family of 500+ corporate members and 3000+ management students across 21 Student Chapters.\n\n🏆 We are honored to have won the Best Local Management Association Award by AIMA 18 times!\n\nWould you like to know more about joining IMA?";
         case '/membership':
           return "We have fantastic membership categories to suit your goals! (Fees as of 2025–2026, 18% GST extra):\n\n💎 Diamond Premium: ₹50,000 + ₹2k one-time\n🏆 Platinum Premium: ₹35,000 + ₹2k one-time\n🥇 Gold: ₹15,000 + ₹1k one-time\n🥈 Silver: ₹6,000 + ₹1k one-time\n\nWould you like to know more about joining IMA or type /recommend for help choosing?";
         case '/recommend':
@@ -225,7 +225,7 @@ export const Chatbot = () => {
       return "🏆 Best Local Management Association\n\nWe are extremely proud to have been awarded the 'Best Local Management Association' by AIMA 18 times! This reflects our consistency, excellence, and strong community impact across Central India.";
     }
     if (text.includes('history') || text.includes('established') || text.includes('legacy') || text.includes('since') || /\bold\b/.test(text)) {
-      return "🕰️ Our Legacy\n\nEstablished in 1962, IMA Indore has a glorious legacy of over 63 years! We are a non-profit organization affiliated with AIMA, bringing together 500+ corporates and 3000+ management students.";
+      return "🕰️ Our Legacy\n\nEstablished in 1963, IMA Indore has a glorious legacy of over 63 years! We are a non-profit organization affiliated with AIMA, bringing together 500+ corporates and 3000+ management students.";
     }
     if (text.includes('contact') || text.includes('call') || text.includes('email') || text.includes('reach') || text.includes('number') || text.includes('help')) {
       return "We would absolutely love to hear from you!\n\n📞 Phone: +91 888 999 6133\n✉️ Email: contact@imaindore.com\n🌐 Website: www.imaindore.com\n\nShall I share the best contact for a quick membership discussion?";
