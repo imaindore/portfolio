@@ -129,6 +129,17 @@ export const Contact = () => {
                 <p className="text-gray-600"> 56/1, Jall Auditorium, South Tukoganj, Indore - 452001, Madhya Pradesh, India</p>
               </div>
             </motion.div>
+
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-md border border-gray-100 mt-8 relative z-20">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3555.6478393143093!2d75.87602937530482!3d22.719346279387455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd1640000001%3A0xbda648eecfd7f31b!2sIndore%20Management%20Association!5e1!3m2!1sen!2sin!4v1775198776063!5m2!1sen!2sin"
+                className="w-full h-full"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
           </motion.div>
 
           <motion.form

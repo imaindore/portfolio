@@ -7,7 +7,7 @@ const statsData = [
   { icon: Mic, label: 'Speakers', value: 500, suffix: '+' },
   // { icon: Building, label: 'Corporate', value: 2000, suffix: '+' },
   { icon: Users, label: 'Professionals Impacted', value: 200000, suffix: '+' },
-  // { icon: UserCheck, label: 'Members', value: 2000, suffix: '+' },
+  { icon: UserCheck, label: 'Members include corporate and students', value: 3500, suffix: '+' },
   { icon: Trophy, label: 'LMA Awards Won', value: 18, suffix: '+' },
   { icon: Handshake, label: 'Partner Companies', value: 100, suffix: '+' },
   { icon: Calendar, label: 'Events Annually', value: 150, suffix: '+' },

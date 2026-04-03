@@ -26,7 +26,7 @@ Core mission & what you MUST do:
 3. Answer questions accurately about programs, events, benefits, student chapters, fees, contacts
 4. Promote joining in a warm, value-driven way
 5. Always showcase pride in:
-   - 63+ years of existence (as of 2025–2026)
+   - 62+ years of existence (as of 2025–2026)
    - 18 times awarded **Best Local Management Association** by AIMA
    - Strong community impact across Indore and Central India
 
@@ -141,7 +141,7 @@ You are proud to represent IMA Indore — now help every user with enthusiasm an
 export const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { text: 'Hello there! 👋 I am IMA-Helper, the official virtual assistant of Indore Management Association (IMA Indore).\n\nWith over 63 years of glorious legacy, we are Central India’s leading platform for leadership, learning, and networking!\n\nHow can I help you accelerate your growth today? Try using a command below!', isBot: true },
+    { text: 'Hello there! 👋 I am IMA-Helper, the official virtual assistant of Indore Management Association (IMA Indore).\n\nWith over 62 years of glorious legacy, we are Central India’s leading platform for leadership, learning, and networking!\n\nHow can I help you accelerate your growth today? Try using a command below!', isBot: true },
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -169,7 +169,7 @@ export const Chatbot = () => {
         case '/help':
           return "Here are the commands you can use:\n👉 /about - Discover our legacy\n👉 /membership - View 2025-2026 plans\n👉 /recommend - Find your perfect fit\n👉 /events - Explore our programs\n👉 /benefits - See member perks\n👉 /contact - Get in touch\n👉 /join - Apply for membership\n\n📞 Phone: +91 888 999 6133\n✉️ Email: contact@imaindore.com\n🌐 Website: www.imaindore.com\n\nWhat would be most helpful for you right now?";
         case '/about':
-          return "We are so proud of our journey! 🌟\n\nEstablished in 1963, IMA Indore is a non-profit organization affiliated with AIMA. Over our 63+ years of legacy, we have grown to a family of 500+ corporate members and 3000+ management students across 21 Student Chapters.\n\n🏆 We are honored to have won the Best Local Management Association Award by AIMA 18 times!\n\nWould you like to know more about joining IMA?";
+          return "We are so proud of our journey! 🌟\n\nEstablished in 1963, IMA Indore is a non-profit organization affiliated with AIMA. Over our 62+ years of legacy, we have grown to a family of 500+ corporate members and 3000+ management students across 21 Student Chapters.\n\n🏆 We are honored to have won the Best Local Management Association Award by AIMA 18 times!\n\nWould you like to know more about joining IMA?";
         case '/membership':
           return "We have fantastic membership categories to suit your goals! (Fees as of 2025–2026, 18% GST extra):\n\n💎 Diamond Premium: ₹50,000 + ₹2k one-time\n🏆 Platinum Premium: ₹35,000 + ₹2k one-time\n🥇 Gold: ₹15,000 + ₹1k one-time\n🥈 Silver: ₹6,000 + ₹1k one-time\n\nWould you like to know more about joining IMA or type /recommend for help choosing?";
         case '/recommend':
@@ -225,7 +225,7 @@ export const Chatbot = () => {
       return "🏆 Best Local Management Association\n\nWe are extremely proud to have been awarded the 'Best Local Management Association' by AIMA 18 times! This reflects our consistency, excellence, and strong community impact across Central India.";
     }
     if (text.includes('history') || text.includes('established') || text.includes('legacy') || text.includes('since') || /\bold\b/.test(text)) {
-      return "🕰️ Our Legacy\n\nEstablished in 1963, IMA Indore has a glorious legacy of over 63 years! We are a non-profit organization affiliated with AIMA, bringing together 500+ corporates and 3000+ management students.";
+      return "🕰️ Our Legacy\n\nEstablished in 1963, IMA Indore has a glorious legacy of over 62 years! We are a non-profit organization affiliated with AIMA, bringing together 500+ corporates and 3000+ management students.";
     }
     if (text.includes('contact') || text.includes('call') || text.includes('email') || text.includes('reach') || text.includes('number') || text.includes('help')) {
       return "We would absolutely love to hear from you!\n\n📞 Phone: +91 888 999 6133\n✉️ Email: contact@imaindore.com\n🌐 Website: www.imaindore.com\n\nShall I share the best contact for a quick membership discussion?";
@@ -240,7 +240,7 @@ export const Chatbot = () => {
       return "Awesome! We'd love to have you in the IMA family. 🚀\n\nFor Women's Membership, apply here:\nhttps://www.imaindore.com/Individual-form.php\n\nFor Corporate Membership, apply here:\nhttps://www.imaindore.com/memberCorporate.php";
     }
 
-    return "That’s a great question! While I know all about our memberships, events, and 63+ year legacy, I might need a bit more context for that specific query.\n\nLet me connect you with our team for the most accurate information. You can reach them at +91 888 999 6133 or contact@imaindore.com.\n\nWhat would be most helpful for you right now?";
+    return "That’s a great question! While I know all about our memberships, events, and 62+ year legacy, I might need a bit more context for that specific query.\n\nLet me connect you with our team for the most accurate information. You can reach them at +91 888 999 6133 or contact@imaindore.com.\n\nWhat would be most helpful for you right now?";
   };
 
   const renderMessageText = (text: string, isBot: boolean) => {
