@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 const journeyPoints = [
   {
     title: '63 Years of Excellence',
-    content: 'Affiliated with AIMA, IMA is Central India’s leading platform for leadership, learning, and networking, uniting 500+ corporates and 3000+ students.',
+    content: 'Indore Management Association (IMA) is Central India’s leading management forum, with a proud legacy of over 63 years. It is a non-profit association, affiliated with the All India Management Association (AIMA), IMA brings together enterprises, business leaders, professionals, academicians and students working collectively toward shared growth and excellence.\n\nIts a strong platform for leadership, learning & networking, uniting 500+ corporates and 3000+ students.',
     icon: Trophy,
   },
   {
@@ -15,7 +15,7 @@ const journeyPoints = [
   },
   {
     title: 'Active Engagement',
-    content: 'Conducting 60–70 programs annually, including the International Management Conclave, CEOs Meet, and specialized forums.',
+    content: 'Conducting 150+ programs annually, including the International Management Conclave, CEOs Meet, Training Programs, Specialized Forums and Student focused programs.',
     icon: Calendar,
   },
   {
@@ -25,12 +25,12 @@ const journeyPoints = [
   },
   {
     title: 'Driving Innovation',
-    content: 'Leading initiatives like AI & Innovation Summit, HR & Fintech Conclaves, Women Empowerment programs, and Startup Event.',
+    content: 'Leading initiatives like AI & Innovation Summit, HR Conclave, Fintech Conclave, Women Empowerment programs and Startup Event.',
     icon: Rocket,
   },
   {
     title: 'Massive Impact',
-    content: 'With 33 conclaves, 500+ speakers, and 1 lakh+ professionals impacted, IMA continues to be a powerful platform for growth.',
+    content: 'With 33 conclaves, 500+ speakers and 1 lakh+ professionals impacted, IMA continues to be a powerful platform for growth.',
     icon: TrendingUp,
   },
 ];
@@ -131,7 +131,7 @@ export const Timeline = () => {
                 </div>
                 <div className="relative z-10">
                   <h3 className="text-xl font-bold text-[#111111] mb-2 group-hover:text-[#D4AF37] transition-colors">{point.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">{point.content}</p>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base whitespace-pre-line">{point.content}</p>
                 </div>
               </motion.div>
             ))}

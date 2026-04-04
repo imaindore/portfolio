@@ -22,9 +22,9 @@ const programCards: Program[] = [
   },
   {
     id: 'women',
-    title: 'Women Conclave',
+    title: 'IMA Women Conclave',
     description: 'Empowering and celebrating women in leadership.',
-    image_urls: ['/image/wlc4.png','/image/wlc1.JPG','/image/wlc2.JPG','/image/wlc.JPG','/image/wlc3.JPG','/image/wlc5.png','/image/wlc6.JPG','/image/wlc7.JPG','/image/wlc8.JPG','/image/wlc9.JPG','/image/wlc10.JPG'],
+    image_urls: ['/image/wlc.png','/image/wlc-1.png','/image/wlc4.png','/image/wlc1.JPG','/image/wlc2.JPG','/image/wlc3.JPG','/image/wlc5.png','/image/wlc6.JPG','/image/wlc7.JPG','/image/wlc8.JPG','/image/wlc9.JPG','/image/wlc10.JPG','/image/wlc11.JPG'],
     icon: Briefcase,
     gradient: 'from-pink-500/30 to-purple-500/30',
   },
