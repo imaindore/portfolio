@@ -40,13 +40,13 @@ const membershipPlans = [
     id: 'diamond',
     title: 'Diamond Premium Membership',
     badge: 'Ultimate Experience',
-    annualFee: '₹50,000',
+    annualFee: '₹75,000',
   },
   {
     id: 'platinum',
     title: 'Platinum Premium Membership',
     badge: 'Premium Experience',
-    annualFee: '₹35,000',
+    annualFee: '₹50,000',
   },
   {
     id: 'gold',
@@ -389,7 +389,7 @@ export const Benefits = () => {
                         <div>
                           <span className="text-xs uppercase tracking-wider block text-[#111111]/80 font-bold mb-1">Annual Fee / Programs</span>
                           <div className="flex items-baseline gap-2">
-                            <span className="text-3xl lg:text-4xl font-bold text-white">₹50,000</span>
+                            <span className="text-3xl lg:text-4xl font-bold text-white">₹75,000</span>
                             <span className="text-xs text-[#111111]/80 font-semibold">(18% GST Extra)</span>
                           </div>
                         </div>
@@ -434,7 +434,7 @@ export const Benefits = () => {
                         "Free HR's, IT's, Women's & Couple's Forum programs",
                         "1 free Copies: Annual Indore Manager Magazine Subscription (Quarterly Circulation)",
                         "Complimentary: IMA International Management Conclave 2027/Women Conclave 2026 (Women Members)/Start-up Event",
-                        "2 Chairs in Executive Zone at IMA Conclave"
+                        "2 Chairs in Executive Zone and 1 table for 6 delegates in deluxe zone at IMA Conclave"
                       ].map((feature, i) => (
                         <div key={i} className="flex items-start gap-4 group">
                           <div className="w-6 h-6 rounded-full bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#D4AF37]/30 group-hover:bg-[#D4AF37] transition-colors">
@@ -462,7 +462,7 @@ export const Benefits = () => {
                         <div>
                           <span className="text-xs uppercase tracking-wider block text-[#111111]/80 font-bold mb-1">Annual Fee / Programs</span>
                           <div className="flex items-baseline gap-2">
-                            <span className="text-3xl lg:text-4xl font-bold text-[#111111]">₹35,000</span>
+                            <span className="text-3xl lg:text-4xl font-bold text-[#111111]">₹50,000</span>
                             <span className="text-xs text-[#111111]/80 font-semibold">(18% GST Extra)</span>
                           </div>
                         </div>
@@ -507,7 +507,7 @@ export const Benefits = () => {
                         "Free HR's, IT's, Women's & Couple's Forum programs",
                         "1 free Copies: Annual Indore Manager Magazine Subscription (Quarterly Circulation)",
                         "Complimentary: IMA International Management Conclave 2027/Women Conclave 2026 (Women Members)/Start-up Event",
-                        "2 Chairs in Executive Zone at IMA Conclave"
+                        "2 Chairs in Executive Zone and 3 Chairs in deluxe zone at IMA Conclave"
                       ].map((feature, i) => (
                         <div key={i} className="flex items-start gap-4 group">
                           <div className="w-6 h-6 rounded-full bg-[#b0b5b9]/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#b0b5b9]/40 group-hover:bg-[#8e9399] transition-colors">
