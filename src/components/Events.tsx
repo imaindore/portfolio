@@ -40,7 +40,7 @@ const programCards: Program[] = [
     id: 'training',
     title: 'Training Program',
     description: 'Skill development workshops and management programs.',
-    image_urls: ['/image/t.jpg', '/image/t1.jpeg', '/image/t2.jpg','/image/t3.JPG','/image/t4.jpeg', '/image/t5.jpeg', '/image/t6.jpeg','/image/t7.jpeg','/image/t8.jpeg', '/image/t9.jpeg','/image/t10.jpg','/image/t11.jpg','/image/t12.jpg','/image/t13.jpeg'],
+    image_urls: ['/image/t.png', '/image/t1.jpeg', '/image/t2.jpg','/image/t3.JPG','/image/t4.jpeg', '/image/t5.jpeg', '/image/t6.jpeg','/image/t7.jpeg','/image/t8.jpeg', '/image/t9.jpeg','/image/t10.jpg','/image/t11.jpg','/image/t12.jpg','/image/t13.jpeg'],
     icon: Users,
     gradient: 'from-orange-500/30 to-yellow-500/30',
   },
