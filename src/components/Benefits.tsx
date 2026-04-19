@@ -281,9 +281,10 @@ export const Benefits = () => {
                       "1 free ticket, yearly in Rendezvous CEOs' Dinner meet",
                       "1 free ticket, yearly in Management Development Programs (MDP) & training@doorstep",
                       "Free Evening Sessions and Tea Networking",
-                      "Free HR's, IT's, Women's & Couple's Forum programs",
+                      "Free HR, IT, Women's & Couple Forum programs",
                       "1 free Copy of Annual Indore Manager Magazine Subscription",
-                      "1 Chair complimentary in IMA International Management Conclave 2027 & Women Conclave 2026 (Women Members)/Start-up Event with chargeable with Discounted Rate."
+                      "Chargeable with Discounted Rate at IMA International Management Conclave 2027",
+                      "1 Chair complimentary in Women Conclave 2026 (Women Members)/Start-up Event"
                     ].map((feature, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -343,9 +344,9 @@ export const Benefits = () => {
                         "1 free Nomination in each program for Rendezvous CEOs' Dinner meet",
                         "2 free tickets, yearly for Management Development Programs (MDP) & training@doorstep",
                         "Free Evening Sessions and Tea Networking",
-                        "Free HR's, IT's, Women's & Couple's Forum programs",
+                        "Free HR, IT, Women & Couple Forum programs",
                         "1 free Copy of Annual Indore Manager Magazine Subscription",
-                        "Complimentary 1 Chair in Executive Zone at IMA Conclaves & Events"
+                        "Complimentary 1 Chair in Executive Zone at IMA Conclaves & Events",
                       ].map((feature, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <div className="w-5 h-5 rounded-full bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -430,7 +431,7 @@ export const Benefits = () => {
                         "3 free Nominations in each program: Rendezvous CEOs' Dinner meet Programs (CEOs'/ Top Management)",
                         "3 free Nominations in each program: Management Development Programs (MDP) in Indore & training@doorstep programs in Pithampur/Dewas/Ujjain (For any manager / HOD)",
                         "1 free session: Diksha In-House Program for Employees (Min 4 hrs each Training Session)",
-                        "Free Evening sessions and IMA Forum programs (HR, IT, Women & Couple Forum programs",
+                        "Free Evening sessions and IMA Forum programs (HR, IT, Women & Couple Forum programs)",
                         "1 free Copies: Annual Indore Manager Magazine Subscription (Quarterly Circulation)",
                         "1 table for 6 delegates in Privilege Zone at IMA International Management Conclave 2027",
                         "2 Chairs in Women Conclave 2026 (Women Members)/Start-up Event"
@@ -503,7 +504,7 @@ export const Benefits = () => {
                         "2 free Nominations in each program: Management Development Programs (MDP) in Indore & training@doorstep programs in Pithampur/Dewas/Ujjain (Any Manager / HOD)",
                         "1 free session on Diksha In-House Program for Employees (Min 4 hrs each Training Session)",
                         "Free Evening sessions and Tea Networking",
-                        "Free HR's, IT's, Women's & Couple's Forum programs",
+                        "Free HR, IT, Women & Couple Forum programs",
                         "1 free Copies: Annual Indore Manager Magazine Subscription (Quarterly Circulation)",
                         "3 Chairs in Privilege Zone at IMA International Management Conclave 2027",
                         "2 Chairs in Women Conclave 2026 (Women Members)/Start-up Event"
