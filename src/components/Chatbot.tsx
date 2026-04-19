@@ -171,7 +171,7 @@ export const Chatbot = () => {
         case '/about':
           return "We are so proud of our journey! 🌟\n\nEstablished in 1963, IMA Indore is a non-profit organization affiliated with AIMA. Over our 62+ years of legacy, we have grown to a family of 500+ corporate members and 3000+ management students across 21 Student Chapters.\n\n🏆 We are honored to have won the Best Local Management Association Award by AIMA 18 times!\n\nWould you like to know more about joining IMA?";
         case '/membership':
-          return "We have fantastic membership categories to suit your goals! (Fees as of 2025–2026, 18% GST extra):\n\n💎 Diamond Premium: ₹50,000 + ₹2k one-time\n🏆 Platinum Premium: ₹35,000 + ₹2k one-time\n🥇 Gold: ₹15,000 + ₹1k one-time\n🥈 Silver: ₹6,000 + ₹1k one-time\n\nWould you like to know more about joining IMA or type /recommend for help choosing?";
+          return "We have fantastic membership categories to suit your goals! (Fees as of 2026–2027, 18% GST extra):\n\n💎 Diamond Premium: ₹75,000 + ₹2k one-time\n🏆 Platinum Premium: ₹50  ,000 + ₹2k one-time\n🥇 Gold: ₹15,000 + ₹1k one-time\n🥈 Silver: ₹6,000 + ₹1k one-time\n\nWould you like to know more about joining IMA or type /recommend for help choosing?";
         case '/recommend':
           return "I'd love to help you find the best fit! Let's figure this out together.\n\nCould you tell me a bit about yourself?\n• What is your role / company size?\n• What is your main goal? (networking, CEO-level access, employee training, branding, student development…)\n• What is your approximate budget range?\n\n(Tip: For students & individuals, Silver is great. For corporate teams, Gold, Platinum, or Diamond offer incredible value!)";
         case '/events':
@@ -192,16 +192,16 @@ export const Chatbot = () => {
     
     // Advanced Keyword Search based on the System Prompt Data
     if (text.includes('diamond')) {
-      return "💎 Diamond Premium Membership\nAnnual: ₹50,000 + one-time ₹2,000 (18% GST extra)\n\n• 2 free nominations per CEO Dinner Meet\n• 3 free nominations per MDP / Training@Doorstep\n• 1 free Diksha in-house training\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• Complimentary International Conclave pass + 2 Executive Zone chairs\n\nApply here: https://www.imaindore.com/memberCorporate.php";
+      return "💎 Diamond Premium Membership\nAnnual: ₹75,000 + one-time ₹2,000 (18% GST extra)\n\n• 3 free nominations per CEO Dinner Meet\n• 3 free nominations per MDP / Training@Doorstep\n• 1 free Diksha in-house training\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• 1 table for 6 delegates in Privilege Zone at IMA International Management Conclave 2027\n• 2 Chairs in Women Conclave 2026 (Women Members)/Start-up Event\n\nApply here: https://www.imaindore.com/memberCorporate.php";
     }
     if (text.includes('platinum')) {
-      return "🏆 Platinum Premium Membership\nAnnual: ₹35,000 + one-time ₹2,000 (18% GST extra)\n\n• 1 free nomination per CEO Dinner Meet\n• 2 free nominations per MDP\n• 50% discount on Diksha in-house session\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• Complimentary International Conclave pass + 2 Executive Zone chairs\n\nApply here: https://www.imaindore.com/memberCorporate.php";
+      return "🏆 Platinum Premium Membership\nAnnual: ₹50,000 + one-time ₹2,000 (18% GST extra)\n\n• 2 free nomination per CEO Dinner Meet\n• 2 free nominations per MDP\n• 1 free on Diksha in-house session\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• 3 Chairs in Privilege Zone at IMA International Management Conclave 2027\n\nApply here: https://www.imaindore.com/memberCorporate.php";
     }
     if (text.includes('gold')) {
       return "🥇 Gold Membership\nAnnual: ₹15,000 + one-time ₹1,000 (18% GST extra)\n\n• 1 free nomination per CEO Dinner Meet\n• 2 free MDP tickets per year\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• Complimentary International Conclave pass + 1 Executive Zone chair\n\nApply here: https://www.imaindore.com/memberCorporate.php";
     }
     if (text.includes('silver')) {
-      return "🥈 Silver Membership\nAnnual: ₹6,000 + one-time ₹1,000 (18% GST extra)\n\n• 1 CEO Dinner ticket per year\n• 1 MDP ticket per year\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• Complimentary International Conclave pass + 1 Executive Zone chair\n\nApply here: https://www.imaindore.com/Individual-form.php";
+      return "🥈 Silver Membership\nAnnual: ₹6,000 + one-time ₹1,000 (18% GST extra)\n\n• 1 CEO Dinner ticket per year\n• 1 MDP ticket per year\n• Free Evening Sessions & Forums\n• 1 complimentary Indore Manager Magazine\n• 1 Chair complimentary in IMA International Management Conclave 2027 & Women Conclave 2026 (Women Members)/Start-up Event with chargeable with Discounted Rate.\n\nApply here: https://www.imaindore.com/Individual-form.php";
     }
     if (text.includes('student') || text.includes('college') || text.includes('youth') || text.includes('chapter')) {
       return "🎓 Student Chapters\n\nWe have 21 active Student Chapters in reputed colleges and institutes! We organize 60-70 focused programs per year for students, focusing on:\n• Skill-building\n• Industry exposure\n• Leadership development\n• Placements support\n\nWould you like to know how to start a chapter at your institute?";

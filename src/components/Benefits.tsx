@@ -283,7 +283,7 @@ export const Benefits = () => {
                       "Free Evening Sessions and Tea Networking",
                       "Free HR's, IT's, Women's & Couple's Forum programs",
                       "1 free Copy of Annual Indore Manager Magazine Subscription",
-                      "Complimentary 1 Chair in Executive Zone at IMA Conclaves & Events"
+                      "1 Chair complimentary in IMA International Management Conclave 2027 & Women Conclave 2026 (Women Members)/Start-up Event with chargeable with Discounted Rate."
                     ].map((feature, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -427,14 +427,13 @@ export const Benefits = () => {
                     </h4>
                     <div className="space-y-6">
                       {[
-                        "2 free Nominations in each program: Rendezvous CEOs' Dinner meet Programs (CEOs'/ Top Management)",
+                        "3 free Nominations in each program: Rendezvous CEOs' Dinner meet Programs (CEOs'/ Top Management)",
                         "3 free Nominations in each program: Management Development Programs (MDP) in Indore & training@doorstep programs in Pithampur/Dewas/Ujjain (For any manager / HOD)",
                         "1 free session: Diksha In-House Program for Employees (Min 4 hrs each Training Session)",
-                        "Free Evening sessions and Tea Networking",
-                        "Free HR's, IT's, Women's & Couple's Forum programs",
+                        "Free Evening sessions and IMA Forum programs (HR, IT, Women & Couple Forum programs",
                         "1 free Copies: Annual Indore Manager Magazine Subscription (Quarterly Circulation)",
-                        "Complimentary: IMA International Management Conclave 2027/Women Conclave 2026 (Women Members)/Start-up Event",
-                        "2 Chairs in Executive Zone and 1 table for 6 delegates in deluxe zone at IMA Conclave"
+                        "1 table for 6 delegates in Privilege Zone at IMA International Management Conclave 2027",
+                        "2 Chairs in Women Conclave 2026 (Women Members)/Start-up Event"
                       ].map((feature, i) => (
                         <div key={i} className="flex items-start gap-4 group">
                           <div className="w-6 h-6 rounded-full bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#D4AF37]/30 group-hover:bg-[#D4AF37] transition-colors">
@@ -500,14 +499,14 @@ export const Benefits = () => {
                     </h4>
                     <div className="space-y-6 relative z-10">
                       {[
-                        "1 free Nomination in each program: Rendezvous CEOs' Dinner meet Programs (CEOs'/ Top Management)",
+                        "2 free Nomination in each program: Rendezvous CEOs' Dinner meet Programs (CEOs'/ Top Management)",
                         "2 free Nominations in each program: Management Development Programs (MDP) in Indore & training@doorstep programs in Pithampur/Dewas/Ujjain (Any Manager / HOD)",
-                        "50% Discount on Diksha In-House Program for Employees (Min 4 hrs each Training Session)",
+                        "1 free session on Diksha In-House Program for Employees (Min 4 hrs each Training Session)",
                         "Free Evening sessions and Tea Networking",
                         "Free HR's, IT's, Women's & Couple's Forum programs",
                         "1 free Copies: Annual Indore Manager Magazine Subscription (Quarterly Circulation)",
-                        "Complimentary: IMA International Management Conclave 2027/Women Conclave 2026 (Women Members)/Start-up Event",
-                        "2 Chairs in Executive Zone and 3 Chairs in deluxe zone at IMA Conclave"
+                        "3 Chairs in Privilege Zone at IMA International Management Conclave 2027",
+                        "2 Chairs in Women Conclave 2026 (Women Members)/Start-up Event"
                       ].map((feature, i) => (
                         <div key={i} className="flex items-start gap-4 group">
                           <div className="w-6 h-6 rounded-full bg-[#b0b5b9]/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#b0b5b9]/40 group-hover:bg-[#8e9399] transition-colors">
